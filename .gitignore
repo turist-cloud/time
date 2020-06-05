@@ -1,0 +1,8 @@
+/coverage
+yarn-error.log
+lib/
+# dependencies
+node_modules
+
+# logs
+npm-debug.log
