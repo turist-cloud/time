@@ -1,4 +1,4 @@
-import * as TimeUnit from "./timeunit"
+import * as TimeUnit from './timeunit';
 
 const s = 1000;
 const m = s * 60;
@@ -6,9 +6,6 @@ const h = m * 60;
 const d = h * 24;
 const w = d * 7;
 const y = d * 365.25;
-
-
-export * as TimeUnit from "./timeunit"
 
 type TimeUnit =
   | typeof TimeUnit.Year
@@ -19,9 +16,7 @@ type TimeUnit =
   | typeof TimeUnit.Second
   | typeof TimeUnit.MilliSecond;
 
-
-
-export function convert(n: number, type: TimeUnit): number | undefined {
+export default function (n: number, type: TimeUnit): number | undefined {
   switch (type) {
     case TimeUnit.Year:
       return n * y;
@@ -41,3 +36,5 @@ export function convert(n: number, type: TimeUnit): number | undefined {
       return undefined;
   }
 }
+
+export * as TimeUnit from './timeunit';
