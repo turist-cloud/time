@@ -5,33 +5,53 @@ const d = h * 24;
 const w = d * 7;
 const y = d * 365.25;
 
-export const TimeUnit = {
-  Year: Symbol(`Year`),
-  Week: Symbol(`Week`),
-  Day: Symbol(`Day`),
-  Hour: Symbol(`Hour`),
-  Minute: Symbol(`Minute`),
-  Second: Symbol(`Second`),
-  MilliSecond: Symbol(`MilliSecond`),
-};
+const Year = Symbol(`Year`);
+const Week = Symbol(`Week`);
+const Day = Symbol(`Day`);
+const Hour = Symbol(`Hour`);
+const Minute = Symbol(`Minute`);
+const Second = Symbol(`Second`);
+const MilliSecond = Symbol(`MilliSecond`);
 
-export function convert(n: number, type: symbol): number | undefined {
+//export { Year, Week, Day, Hour, Minute, Second, MilliSecond };
+
+type TimeUnit =
+  | typeof Year
+  | typeof Week
+  | typeof Day
+  | typeof Hour
+  | typeof Minute
+  | typeof Second
+  | typeof MilliSecond;
+
+function time(n: number, type: TimeUnit): number | undefined {
   switch (type) {
-    case TimeUnit.Year:
+    case Year:
       return n * y;
-    case TimeUnit.Week:
+    case Week:
       return n * w;
-    case TimeUnit.Day:
+    case Day:
       return n * d;
-    case TimeUnit.Hour:
+    case Hour:
       return n * h;
-    case TimeUnit.Minute:
+    case Minute:
       return n * m;
-    case TimeUnit.Second:
+    case Second:
       return n * s;
-    case TimeUnit.MilliSecond:
+    case MilliSecond:
       return n;
     default:
       return undefined;
   }
 }
+
+export default time
+
+time.Year = Year
+time.Week = Week
+time.Day = Day
+time.Hour = Hour
+time.Minute = Minute
+time.Second = Second
+time.MilliSecond = MilliSecond
+
