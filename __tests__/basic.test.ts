@@ -7,13 +7,11 @@ describe('time(n, TimeUnit)', () => {
       time(1, TimeUnit.Year);
     }).not.toThrow();
   });
-  it('should ', () => {
-    expect(time(100, TimeUnit.MilliSecond )).toEqual(100);
-  });
 
   it('should preserve time', () => {
     expect(time(100, TimeUnit.MilliSecond)).toEqual(100);
   });
+
   it('should time from minute to millisecond', () => {
     expect(time(1, TimeUnit.Minute)).toEqual(60000);
   });
