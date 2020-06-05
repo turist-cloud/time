@@ -1,3 +1,5 @@
+import * as TimeUnit from "./timeunit"
+
 const s = 1000;
 const m = s * 60;
 const h = m * 60;
@@ -5,40 +7,35 @@ const d = h * 24;
 const w = d * 7;
 const y = d * 365.25;
 
-const Year = Symbol(`Year`);
-const Week = Symbol(`Week`);
-const Day = Symbol(`Day`);
-const Hour = Symbol(`Hour`);
-const Minute = Symbol(`Minute`);
-const Second = Symbol(`Second`);
-const MilliSecond = Symbol(`MilliSecond`);
 
-export { Year, Week, Day, Hour, Minute, Second, MilliSecond }
+export * as TimeUnit from "./timeunit"
 
 type TimeUnit =
-  | typeof Year
-  | typeof Week
-  | typeof Day
-  | typeof Hour
-  | typeof Minute
-  | typeof Second
-  | typeof MilliSecond;
+  | typeof TimeUnit.Year
+  | typeof TimeUnit.Week
+  | typeof TimeUnit.Day
+  | typeof TimeUnit.Hour
+  | typeof TimeUnit.Minute
+  | typeof TimeUnit.Second
+  | typeof TimeUnit.MilliSecond;
+
+
 
 export function convert(n: number, type: TimeUnit): number | undefined {
   switch (type) {
-    case Year:
+    case TimeUnit.Year:
       return n * y;
-    case Week:
+    case TimeUnit.Week:
       return n * w;
-    case Day:
+    case TimeUnit.Day:
       return n * d;
-    case Hour:
+    case TimeUnit.Hour:
       return n * h;
-    case Minute:
+    case TimeUnit.Minute:
       return n * m;
-    case Second:
+    case TimeUnit.Second:
       return n * s;
-    case MilliSecond:
+    case TimeUnit.MilliSecond:
       return n;
     default:
       return undefined;

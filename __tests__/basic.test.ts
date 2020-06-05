@@ -1,6 +1,5 @@
-import * as TimeUnit from '../src/index';
+import {convert, TimeUnit} from '../src/index';
 
-const convert = TimeUnit.convert
 
 describe('convert(n, TimeUnit)', () => {
   it('should not throw an error', () => {
