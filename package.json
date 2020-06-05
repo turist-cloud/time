@@ -2,13 +2,14 @@
   "name": "@turist/time",
   "version": "0.0.1",
   "description": "Making time pass faster on the ship",
-  "main": "./lib/index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "yarn run test-lint && yarn run test-unit",
-    "test-lint": "eslint .",
-    "test-unit": "jest --testTimeout 200",
-    "lint:staged": "lint-staged",
-    "prettier": "prettier --single-quote --write './{src,__tests__}/**/*.ts'"
+    "build": "rm -rf ./lib && tsc",
+    "lint": "eslint --ext .ts './{src,__test__,__perf__}/**/*.ts'",
+    "perf": "node --prof ./node_modules/.bin/ts-node __perf__/",
+    "prettier": "prettier --write './{src,__test__,__perf__}/**/*.ts'",
+    "test": "jest --runInBand --clearCache && jest --coverage",
+    "prepublish": "npm run build"
   },
   "files": [
     "lib"
@@ -41,23 +42,22 @@
     }
   },
   "devDependencies": {
-    "eslint": "6.8.0",
-    "eslint-config-airbnb": "18.1.0",
-    "eslint-config-prettier": "6.10.1",
-    "eslint-plugin-import": "2.20.1",
-    "eslint-plugin-jest": "23.8.2",
-    "jest": "25.1.0",
-    "lint-staged": "10.0.8",
-    "pre-commit": "1.2.2",
-    "prettier": "2.0.1",
-    "ts-jest": "25.3.1",
-    "typescript": "3.8.3"
+    "@types/jest": "25.2.3",
+    "@types/node": "14.0.5",
+    "@typescript-eslint/eslint-plugin": "3.0.0",
+    "@typescript-eslint/parser": "3.0.0",
+    "eslint": "7.0.0",
+    "eslint-config-prettier": "6.11.0",
+    "eslint-plugin-prettier": "3.1.3",
+    "jest": "26.0.1",
+    "prettier": "2.0.5",
+    "tmp-promise": "3.0.2",
+    "ts-jest": "26.0.0",
+    "ts-node": "8.10.1",
+    "typescript": "3.9.3"
   },
   "jest": {
     "preset": "ts-jest",
     "verbose": true
-  },
-  "dependencies": {
-    "@types/jest": "25.2.3"
   }
 }

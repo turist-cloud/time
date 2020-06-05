@@ -1,5 +1,6 @@
 /coverage
 yarn-error.log
+lib/
 # dependencies
 node_modules
 
