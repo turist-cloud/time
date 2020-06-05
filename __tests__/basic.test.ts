@@ -1,4 +1,4 @@
-import {convert, TimeUnit} from '../lib/index';
+import {convert, TimeUnit} from '../src/index';
 
 describe('convert(n, TimeUnit)', () => {
   it('should not throw an error', () => {
