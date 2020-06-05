@@ -13,7 +13,7 @@ const Minute = Symbol(`Minute`);
 const Second = Symbol(`Second`);
 const MilliSecond = Symbol(`MilliSecond`);
 
-//export { Year, Week, Day, Hour, Minute, Second, MilliSecond };
+export { Year, Week, Day, Hour, Minute, Second, MilliSecond }
 
 type TimeUnit =
   | typeof Year
@@ -24,7 +24,7 @@ type TimeUnit =
   | typeof Second
   | typeof MilliSecond;
 
-function time(n: number, type: TimeUnit): number | undefined {
+export function convert(n: number, type: TimeUnit): number | undefined {
   switch (type) {
     case Year:
       return n * y;
@@ -44,14 +44,3 @@ function time(n: number, type: TimeUnit): number | undefined {
       return undefined;
   }
 }
-
-export default time
-
-time.Year = Year
-time.Week = Week
-time.Day = Day
-time.Hour = Hour
-time.Minute = Minute
-time.Second = Second
-time.MilliSecond = MilliSecond
-
