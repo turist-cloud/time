@@ -1,6 +1,6 @@
 {
   "name": "@turist/time",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Making time pass faster on the ship",
   "main": "lib/index.js",
   "scripts": {
