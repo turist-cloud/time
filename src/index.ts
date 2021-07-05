@@ -33,7 +33,7 @@ export default function (n: number, type: TimeUnit): number | undefined {
     case TimeUnit.MilliSecond:
       return n;
     default:
-      return undefined;
+      throw new Error(`Unknown TimeUnit ${type}`)
   }
 }
 
